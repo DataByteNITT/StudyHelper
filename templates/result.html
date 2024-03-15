@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question-Answering Result</title>
+    <link rel="stylesheet" type="text/css" href="static/styles_result.css">
+    <style>
+        .text-container {
+          height: 300px; /* Adjust as needed */
+          overflow-y: scroll;
+          border: 1px solid #ccc;
+          padding: 10px;
+        }
+      </style>
+</head>
+<body>
+    <div>
+        <h1>Study-Helper Result</h1>
+        <p><strong>Question:</strong> {{ question }}</p>
+        <p><strong>Answer:</strong> {{ answer }}</p>
+        
+        {% if summary %}
+        <div class="text-container">
+            <p id="scrollableText"><strong>Summary:</strong> {{ summary }}</p>
+        </div>
+            {% endif %}
+    
+    </div>
+    <div class="watermark">dB</div>
+    <script>
+        
+        var textContainer = document.getElementById("scrollableText");
+    
+        // Update the scroll position of the text container when the range input changes
+        rangeInput.addEventListener("input", function() {
+          var scrollPercentage = rangeInput.value / 100;
+          textContainer.scrollTop = scrollPercentage * (textContainer.scrollHeight - textContainer.clientHeight);
+        });
+      </script>
+</body>
+</html>
